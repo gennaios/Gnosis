@@ -13,6 +13,8 @@
 		4E02820C1E179CAC005111D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E02820B1E179CAC005111D2 /* Assets.xcassets */; };
 		4E02820F1E179CAC005111D2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E02820D1E179CAC005111D2 /* MainMenu.xib */; };
 		4E02821A1E179CAD005111D2 /* GnosisUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282191E179CAD005111D2 /* GnosisUITests.swift */; };
+		4E0282261E17A8EB005111D2 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282241E17A8EB005111D2 /* MainWindowController.swift */; };
+		4E0282271E17A8EB005111D2 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282251E17A8EB005111D2 /* MainWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		4E0282151E179CAD005111D2 /* GnosisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GnosisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0282191E179CAD005111D2 /* GnosisUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnosisUITests.swift; sourceTree = "<group>"; };
 		4E02821B1E179CAD005111D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E0282241E17A8EB005111D2 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
+		4E0282251E17A8EB005111D2 /* MainWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				4E02820B1E179CAC005111D2 /* Assets.xcassets */,
 				4E02820D1E179CAC005111D2 /* MainMenu.xib */,
 				4E0282101E179CAC005111D2 /* Info.plist */,
+				4E0282241E17A8EB005111D2 /* MainWindowController.swift */,
+				4E0282251E17A8EB005111D2 /* MainWindowController.xib */,
 			);
 			path = Gnosis;
 			sourceTree = "<group>";
@@ -181,6 +187,7 @@
 			files = (
 				4E02820C1E179CAC005111D2 /* Assets.xcassets in Resources */,
 				4E02820A1E179CAC005111D2 /* Document.xib in Resources */,
+				4E0282271E17A8EB005111D2 /* MainWindowController.xib in Resources */,
 				4E02820F1E179CAC005111D2 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,6 +208,7 @@
 			files = (
 				4E0282071E179CAC005111D2 /* Document.swift in Sources */,
 				4E0282051E179CAC005111D2 /* AppDelegate.swift in Sources */,
+				4E0282261E17A8EB005111D2 /* MainWindowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +413,7 @@
 				4E0282201E179CAD005111D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4E0282211E179CAD005111D2 /* Build configuration list for PBXNativeTarget "GnosisUITests" */ = {
 			isa = XCConfigurationList;
@@ -413,6 +422,7 @@
 				4E0282231E179CAD005111D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

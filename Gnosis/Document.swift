@@ -10,13 +10,20 @@ import Cocoa
 
 class Document: NSDocument {
 
+
 	override init() {
 	    super.init()
 		// Add your subclass-specific initialization here.
 	}
 
 	override class func autosavesInPlace() -> Bool {
-		return true
+		return false
+	}
+
+	override func makeWindowControllers() {
+	//	super.makeWindowControllers()
+		let mainWindowController = MainWindowController(windowNibName: "MainWindowController")
+		self.addWindowController(mainWindowController)
 	}
 
 	override var windowNibName: String? {
