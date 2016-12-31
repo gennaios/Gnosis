@@ -32,10 +32,7 @@
                     <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="Id5-pa-mg3"/>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
-                    <toolbarItem reference="Z4K-nE-P7S"/>
-                    <toolbarItem reference="DCD-X2-tIo"/>
                     <toolbarItem reference="Id5-pa-mg3"/>
-                    <toolbarItem reference="KYQ-ek-2ku"/>
                 </defaultToolbarItems>
             </toolbar>
             <connections>

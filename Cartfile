@@ -1,0 +1,4 @@
+#github "drmohundro/SWXMLHash" ~> 3.0
+github "honghaoz/Ji" ~> 2.0.0
+github "abbeycode/UnzipKit"
+github "stephencelis/SQLite.swift" ~> 0.11.2
