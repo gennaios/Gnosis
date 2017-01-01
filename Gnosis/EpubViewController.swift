@@ -14,152 +14,165 @@ let rightArrowKey = 124
 
 class EpubViewController: NSViewController {
 
-    var webView: WebView?
+	var webView: WebView?
 
-    var epubFile: EpubFile?
-    var EpubFilePath: String!
+	var epubFile: EpubFile?
+	var EpubFilePath: String!
 
-    //    var bookFile: String = ""
-    var bookTitle: String = ""
-    var bookAuthor: String = ""
+	//    var bookFile: String = ""
+	var bookTitle: String = ""
+	var bookAuthor: String = ""
 
-    convenience init() {
-        self.init(file: "")
-    }
+	convenience init() {
+		self.init(file: "")
+	}
 
-    init(file: String) {
-        epubFile = EpubFile(file: file)
-        print("ePub title: \(epubFile?.title!)")
+	init(file: String) {
+		epubFile = EpubFile(file: file)
+		print("ePub title: \(epubFile?.title!)")
 
-        super.init(nibName: nil, bundle: nil)!
-    }
+		super.init(nibName: nil, bundle: nil)!
+	}
 
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+	init(epubFile: EpubFile) {
+		self.epubFile = epubFile
+		print("ePub title: \(epubFile.title!)")
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+		super.init(nibName: nil, bundle: nil)!
+	}
 
-        webView = WebView(frame: self.view.bounds)
-        //		self.view.addSubview(webView!)
-        self.view = self.webView!
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+	}
 
-        webView?.frameLoadDelegate = self
-        webView?.resourceLoadDelegate = self
-        webView?.policyDelegate = self
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-        NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
-            (aEvent) -> NSEvent? in
-            self.keyDown(with: aEvent)
-            return aEvent
-        }
-    }
+		webView = WebView(frame: self.view.bounds)
+		//		self.view.addSubview(webView!)
+		self.view = self.webView!
 
-    func prepareHtml(htmlFile: String) -> String? {
-        let fileContents = try? String(contentsOfFile: htmlFile, encoding: String.Encoding.utf8)
-        let cssFile = Bundle.main.path(forResource: "style", ofType: "css")
-        let cssFile2 = Bundle.main.path(forResource: "style2", ofType: "css")
+		webView?.frameLoadDelegate = self
+		webView?.resourceLoadDelegate = self
+		webView?.policyDelegate = self
 
-        //        print("CSS file path: \(cssFile)")
+		NSEvent.addLocalMonitorForEvents(matching: .keyDown) {
+			(aEvent) -> NSEvent? in
+			self.keyDown(with: aEvent)
+			return aEvent
+		}
+	}
 
-        let cssTag = "<link href=\"\(cssFile!)\" rel=\"stylesheet\" type=\"text/css\"/>"
-        let cssTag2 = "<link href=\"\(cssFile2!)\" rel=\"stylesheet\" type=\"text/css\"/>"
-        let toInject = "\n\(cssTag)\n\(cssTag2)\n</head>"
+	func htmlForIndex(index: Int) {
+		let file = epubFile?.fileForIndex(index: index)
+		print("htmlForIndex: \(file!)")
+		loadFile(file: file!)
+	}
 
-        let newContents = fileContents?.replacingOccurrences(of: "</head>", with: toInject)
+	func prepareHtml(htmlFile: String) -> String? {
+		let fileContents = try? String(contentsOfFile: htmlFile, encoding: String.Encoding.utf8)
+		let cssFile = Bundle.main.path(forResource: "style", ofType: "css")
+		let cssFile2 = Bundle.main.path(forResource: "style2", ofType: "css")
 
-        // let path = NSBundle.mainBundle().pathForResource("jsFileName", ofType: "js")
-        //        if let content = String.stringWithContentsOfFile(path, encoding: NSUTF8StringEncoding, error: nil) {
-        //            println("js content is \(content)")
-        //        }
+		//        print("CSS file path: \(cssFile)")
 
-        return newContents
-    }
+		let cssTag = "<link href=\"\(cssFile!)\" rel=\"stylesheet\" type=\"text/css\"/>"
+		let cssTag2 = "<link href=\"\(cssFile2!)\" rel=\"stylesheet\" type=\"text/css\"/>"
+		let toInject = "\n\(cssTag)\n\(cssTag2)\n</head>"
 
-    func loadFile(file: String) {
-        let baseURL = URL(fileURLWithPath: file).deletingLastPathComponent()
-        let htmlString = prepareHtml(htmlFile: file)
+		let newContents = fileContents?.replacingOccurrences(of: "</head>", with: toInject)
 
-        let _ = webView?.mainFrame.loadHTMLString((htmlString)!, baseURL: baseURL)
-    }
+		// let path = NSBundle.mainBundle().pathForResource("jsFileName", ofType: "js")
+		//        if let content = String.stringWithContentsOfFile(path, encoding: NSUTF8StringEncoding, error: nil) {
+		//            println("js content is \(content)")
+		//        }
 
-    func nextPage() {
-        let nextFile = epubFile?.nextFile()
-        print("Next file: \(nextFile)")
+		return newContents
+	}
 
-        if let nextFile = nextFile {
-            loadFile(file: nextFile)
-        }
-    }
+	func loadFile(file: String) {
+		let baseURL = URL(fileURLWithPath: file).deletingLastPathComponent()
+		let htmlString = prepareHtml(htmlFile: file)
 
-    func previousPage() {
-        let previousFile = epubFile?.previousFile()
-        print("Previous file: \(previousFile)")
+		let _ = webView?.mainFrame.loadHTMLString((htmlString)!, baseURL: baseURL)
+	}
 
-        if let previousFile = previousFile {
-            loadFile(file: previousFile)
-        }
-    }
+	func nextPage() {
+		let nextFile = epubFile?.nextFile()
+		print("Next file: \(nextFile)")
 
-    override func keyDown(with event: NSEvent) {
-        //        let eventChars = event.charactersIgnoringModifiers
+		if let nextFile = nextFile {
+			loadFile(file: nextFile)
+		}
+	}
 
-        let character = Int(event.keyCode)
-        switch character {
-        case leftArrowKey:
-            previousPage()
-            break
-        case rightArrowKey:
-            nextPage()
-            break
-        default:
-            break
-        }
+	func previousPage() {
+		let previousFile = epubFile?.previousFile()
+		print("Previous file: \(previousFile)")
 
-    }
+		if let previousFile = previousFile {
+			loadFile(file: previousFile)
+		}
+	}
+
+	override func keyDown(with event: NSEvent) {
+		//        let eventChars = event.charactersIgnoringModifiers
+
+		let character = Int(event.keyCode)
+		switch character {
+		case leftArrowKey:
+			previousPage()
+			break
+		case rightArrowKey:
+			nextPage()
+			break
+		default:
+			break
+		}
+
+	}
 
 }
 
 extension EpubViewController: WebFrameLoadDelegate {
 
-    func webView(_ sender: WebView!, didStartProvisionalLoadFor frame: WebFrame!) {
-        //		webView.mainFrame.provisionalDataSource
+	func webView(_ sender: WebView!, didStartProvisionalLoadFor frame: WebFrame!) {
+		//		webView.mainFrame.provisionalDataSource
 //		print("didStartProvisionalLoadForFrame: \(frame)")
-    }
+	}
 
 }
 
 extension EpubViewController: WebResourceLoadDelegate {
 
-    func webView(_ sender: WebView!, resource identifier: Any!, willSend request: URLRequest!, redirectResponse: URLResponse!, from dataSource: WebDataSource!) -> URLRequest! {
-        print("redirectResponse request: \(request.url!)")
+	func webView(_ sender: WebView!, resource identifier: Any!, willSend request: URLRequest!, redirectResponse: URLResponse!, from dataSource: WebDataSource!) -> URLRequest! {
+//        print("redirectResponse request: \(request.url!)")
 //		print("redirectResponse resource: \(identifier)")
 
-        guard let url = request.url else {
-            return request
-        }
+		guard let url = request.url else {
+			return request
+		}
 
-        if url.scheme == "file" {
-            let anchorFromURL = url.fragment
+		if url.scheme == "file" {
+			let anchorFromURL = url.fragment
 //			print("anchorFromURL: \(anchorFromURL)")
 
-            let path = url.path
-        }
+			let path = url.path
+		}
 
-        return request
-    }
+		return request
+	}
 
 }
 
 extension EpubViewController: WebPolicyDelegate {
 
-    //	func webView(_ sender: WebView!, resource: Any!, error: Error!, from: WebDataSource!) {
-    //		print("WebPolicyDelegate error: \(error)")
-    //	}
+	//	func webView(_ sender: WebView!, resource: Any!, error: Error!, from: WebDataSource!) {
+	//		print("WebPolicyDelegate error: \(error)")
+	//	}
 
-    func webView(_ webView: WebView!, decidePolicyForNewWindowAction actionInformation: [AnyHashable: Any]!, request: URLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!) {
-        print("decidePolicyForNewWindowAction: \(request.url)")
-    }
+	func webView(_ webView: WebView!, decidePolicyForNewWindowAction actionInformation: [AnyHashable: Any]!, request: URLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!) {
+//        print("decidePolicyForNewWindowAction: \(request.url)")
+	}
 
 }

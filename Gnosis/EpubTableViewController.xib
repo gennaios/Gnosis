@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11762"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="EpubTableViewController" customModule="Gnosis" customModuleProvider="target">
+            <connections>
+                <outlet property="tableView" destination="QIo-gT-NO4" id="FqH-I3-WNy"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="566" height="381"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <scrollView autohidesScrollers="YES" horizontalLineScroll="98" horizontalPageScroll="10" verticalLineScroll="98" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOU-2H-OyI">
+                    <rect key="frame" x="0.0" y="0.0" width="566" height="381"/>
+                    <clipView key="contentView" id="LdD-qo-Ztc">
+                        <rect key="frame" x="1" y="1" width="564" height="379"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowHeight="96" rowSizeStyle="automatic" viewBased="YES" id="QIo-gT-NO4">
+                                <rect key="frame" x="0.0" y="0.0" width="564" height="379"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <size key="intercellSpacing" width="3" height="2"/>
+                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
+                                <tableColumns>
+                                    <tableColumn width="561" minWidth="40" maxWidth="1000" id="qeF-oy-2sJ">
+                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                        </tableHeaderCell>
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="sEF-eU-v9f">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                        <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <prototypeCellViews>
+                                            <tableCellView id="rgu-Uw-hWM" customClass="EpubTableCellView" customModule="Gnosis" customModuleProvider="target">
+                                                <rect key="frame" x="1" y="1" width="561" height="17"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <subviews>
+                                                    <textField identifier="FileCell" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERu-jm-6Ko">
+                                                        <rect key="frame" x="0.0" y="0.0" width="561" height="17"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" allowsUndo="NO" sendsActionOnEndEditing="YES" title="Table View Cell" id="6d4-vl-jbr">
+                                                            <font key="font" metaFont="system"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="ERu-jm-6Ko" firstAttribute="centerY" secondItem="rgu-Uw-hWM" secondAttribute="centerY" id="5OW-rr-ArP"/>
+                                                    <constraint firstItem="ERu-jm-6Ko" firstAttribute="centerX" secondItem="rgu-Uw-hWM" secondAttribute="centerX" id="7Jm-B1-QJs"/>
+                                                    <constraint firstItem="ERu-jm-6Ko" firstAttribute="leading" secondItem="rgu-Uw-hWM" secondAttribute="leading" constant="2" id="bxd-YU-w7O"/>
+                                                </constraints>
+                                                <connections>
+                                                    <outlet property="textField" destination="ERu-jm-6Ko" id="a92-x1-PIi"/>
+                                                </connections>
+                                            </tableCellView>
+                                        </prototypeCellViews>
+                                    </tableColumn>
+                                </tableColumns>
+                            </tableView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="d3W-Mw-ap2">
+                        <rect key="frame" x="1" y="364" width="564" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="Wz6-nd-bNr">
+                        <rect key="frame" x="224" y="17" width="15" height="102"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="OOU-2H-OyI" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="26p-G7-z1g"/>
+                <constraint firstItem="OOU-2H-OyI" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="NyG-au-MQc"/>
+                <constraint firstAttribute="trailing" secondItem="OOU-2H-OyI" secondAttribute="trailing" id="Rch-d0-zET"/>
+                <constraint firstAttribute="bottom" secondItem="OOU-2H-OyI" secondAttribute="bottom" id="T9V-K6-74T"/>
+            </constraints>
+            <point key="canvasLocation" x="182" y="223.5"/>
+        </customView>
+    </objects>
+</document>
