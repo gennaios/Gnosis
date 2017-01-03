@@ -14,19 +14,19 @@ class EpubCollectionViewController: NSViewController {
 
 	let epubCollectionViewItemIdentifier = "epubCollectionViewItem"
 
-	var epubFile: EpubFile!
+	var epubFile: EpubFile?
 	var ePubViewControllers: [EpubViewController] = []
 
 	override var nibName: String {
-		return "BookViewerCollectionViewController"
+		return "EpubCollectionViewController"
 	}
 
-	init(epubFile: EpubFile) {
-		self.epubFile = epubFile
+	init(file: String) {
+		epubFile = EpubFile(file: file)
 
-		for index in 0...((epubFile.documentCount) - 1) {
+		for index in 0...((epubFile?.documentCount)! - 1) {
 			print("Index: \(index)")
-			let epubViewController = EpubViewController(epubFile: epubFile)
+			let epubViewController = EpubViewController(epubFile: epubFile!)
 			epubViewController.htmlForIndex(index: index)
 
 			epubViewController.view.autoresizingMask = NSAutoresizingMaskOptions([.viewWidthSizable, .viewMaxXMargin, .viewMinYMargin, .viewHeightSizable, .viewMaxYMargin])
@@ -40,10 +40,12 @@ class EpubCollectionViewController: NSViewController {
 		super.init(coder: aDecoder)
 	}
 
+	// MARK: Life Cycle
+
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-		let nib = NSNib(nibNamed: "BookViewerCollectionViewItem", bundle: nil)
+		let nib = NSNib(nibNamed: "EpubCollectionViewItem", bundle: nil)
 		collectionView.register(nib, forItemWithIdentifier: "epubCollectionViewItem")
 
 		// Layout
@@ -52,6 +54,8 @@ class EpubCollectionViewController: NSViewController {
 		layout.minimumLineSpacing = 0
 		layout.minimumInteritemSpacing = 0
 //		layout.scrollDirection = UICollectionViewScrollDirection.Vertical
+		collectionView.collectionViewLayout = layout
+		collectionView.minItemSize = NSSize(width:self.view.frame.width, height:CGFloat(200)) // double, int or CGFloat
 
 		// CollectionView
 		collectionView.dataSource = self
@@ -61,7 +65,7 @@ class EpubCollectionViewController: NSViewController {
 		collectionView.isSelectable = false
 
 		// new
-		// collectionView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+//		collectionView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 
 		collectionView.reloadData()
     }
@@ -81,8 +85,8 @@ extension EpubCollectionViewController: NSCollectionViewDataSource {
 	}
 
 	func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-		print("CollectionView count: \(epubFile?.documentCount)")
-		return (epubFile?.documentCount)!
+		print("CollectionView count: \(ePubViewControllers.count)")
+		return (ePubViewControllers.count)
 	}
 
 	func collectionView(_ collectionView: NSCollectionView,
@@ -90,7 +94,8 @@ extension EpubCollectionViewController: NSCollectionViewDataSource {
 		let item = collectionView.makeItem(withIdentifier: "epubCollectionViewItem", for: indexPath as IndexPath)
 
 		if let epubCollectionViewItem = item as? EpubCollectionViewItem {
-			epubCollectionViewItem.view.addSubview(ePubViewControllers[indexPath.item].view)
+			epubCollectionViewItem.mainView.addSubview(ePubViewControllers[indexPath.item].view)
+			epubCollectionViewItem.view.bounds = ePubViewControllers[indexPath.item].view.bounds
 		}
 		return item
 	}

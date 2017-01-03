@@ -14,6 +14,7 @@ class MainWindowController: NSWindowController {
 
 	var epubViewController: EpubViewController!
 	var epubTableViewController: EpubTableViewController!
+	var epubCollectionViewController: EpubCollectionViewController!
 
 	var epubFile: String?
 
@@ -38,6 +39,13 @@ class MainWindowController: NSWindowController {
 		epubTableViewController.view.autoresizingMask = NSAutoresizingMaskOptions([.viewWidthSizable, .viewMaxXMargin, .viewMinYMargin, .viewHeightSizable, .viewMaxYMargin])
 
 		mainView.addSubview(epubTableViewController.view)
+
+//		epubCollectionViewController = EpubCollectionViewController(file: epubFile!)
+//		epubCollectionViewController.view.frame = mainView.bounds
+//		epubCollectionViewController.view.autoresizingMask = NSAutoresizingMaskOptions([.viewWidthSizable, .viewMaxXMargin, .viewMinYMargin, .viewHeightSizable, .viewMaxYMargin])
+//
+//		mainView.addSubview(epubCollectionViewController.view)
+
 	}
 
 }

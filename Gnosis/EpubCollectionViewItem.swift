@@ -9,10 +9,14 @@
 import Cocoa
 
 class EpubCollectionViewItem: NSCollectionViewItem {
-
+	
+	@IBOutlet weak var mainView: NSView!
+	
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+		
+		view.wantsLayer = true
+		view.layer?.backgroundColor = NSColor.lightGray.cgColor
     }
 
 }

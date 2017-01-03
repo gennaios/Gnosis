@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="EpubCollectionViewItem" customModule="Gnosis" customModuleProvider="target">
             <connections>
+                <outlet property="mainView" destination="kFR-g9-UQm" id="FGf-AV-H1T"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
@@ -16,7 +17,18 @@
         <customView id="Hz6-mo-xeY">
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="kFR-g9-UQm">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+                </customView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="kFR-g9-UQm" secondAttribute="trailing" id="7KN-K7-9vF"/>
+                <constraint firstItem="kFR-g9-UQm" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="VHU-Eo-Oe3"/>
+                <constraint firstItem="kFR-g9-UQm" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="txk-oS-bj4"/>
+                <constraint firstAttribute="bottom" secondItem="kFR-g9-UQm" secondAttribute="bottom" id="u4e-X8-VDY"/>
+            </constraints>
         </customView>
-        <collectionViewItem nibName="EpubCollectionViewItem" identifier="epubCollectionViewItem" id="ZD8-E7-0GG" customClass="EpubCollectionViewItem" customModule="Gnosis" customModuleProvider="target"/>
+        <customObject id="dTz-5w-AeS" customClass="EpubCollectionViewItem" customModule="Gnosis" customModuleProvider="target"/>
     </objects>
 </document>

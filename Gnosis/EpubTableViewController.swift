@@ -84,8 +84,18 @@ extension EpubTableViewController: NSTableViewDelegate {
 		return CGFloat(500)
 	}
 
+//	func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+//		if let rowView = tableView.make(withIdentifier: "tableRow", owner: self) as? NSTableRowView {
+//			rowView.addSubview(ePubViewControllers[row].view)
+//			return rowView
+//		}
+//		return nil
+//	}
+
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 		var cellIdentifier: String = ""
+
+		return ePubViewControllers[row].view
 
 		guard (epubFile?.documentList[row]) != nil else {
 			return nil
@@ -96,11 +106,12 @@ extension EpubTableViewController: NSTableViewDelegate {
 		}
 
 		if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
-//			print("Creating table cell")
-//			cell.bounds = ePubViewControllers[row].view.frame
-			cell.addSubview(ePubViewControllers[row].view)
-			cell.setNeedsDisplay(ePubViewControllers[row].view.frame)
-			return cell
+
+//			cell.addSubview(ePubViewControllers[row].view)
+//			cell.frame = ePubViewControllers[row].view.frame
+//			cell.setNeedsDisplay(ePubViewControllers[row].view.frame)
+
+//			return cell
 		}
 		return nil
 	}
