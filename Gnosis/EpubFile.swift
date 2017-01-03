@@ -262,4 +262,38 @@ import Ji
 		return filePath
 	}
 
+	func dataForIndex(index: Int) -> Data {
+		let rawHtml = fileForIndex(index: index)
+		let html = prepareHtml(htmlFile: rawHtml!)!
+		let base64String = Data(html.utf8).base64EncodedString()
+//		let data = Data(base64Encoded: base64String, options: Data.Base64DecodingOptions)
+		return base64String.data(using: String.Encoding.utf8)!
+	}
+
+	func htmlForIndex(index: Int) -> String {
+		let html = fileForIndex(index: index)
+		return prepareHtml(htmlFile: html!)!
+	}
+
+	func prepareHtml(htmlFile: String) -> String? {
+		let fileContents = try? String(contentsOfFile: htmlFile, encoding: String.Encoding.utf8)
+		let cssFile = Bundle.main.path(forResource: "style", ofType: "css")
+		let cssFile2 = Bundle.main.path(forResource: "style2", ofType: "css")
+
+		//        print("CSS file path: \(cssFile)")
+
+		let cssTag = "<link href=\"\(cssFile!)\" rel=\"stylesheet\" type=\"text/css\"/>"
+		let cssTag2 = "<link href=\"\(cssFile2!)\" rel=\"stylesheet\" type=\"text/css\"/>"
+		let toInject = "\n\(cssTag)\n\(cssTag2)\n</head>"
+
+		let newContents = fileContents?.replacingOccurrences(of: "</head>", with: toInject)
+
+		// let path = NSBundle.mainBundle().pathForResource("jsFileName", ofType: "js")
+		//        if let content = String.stringWithContentsOfFile(path, encoding: NSUTF8StringEncoding, error: nil) {
+		//            println("js content is \(content)")
+		//        }
+
+		return newContents
+	}
+
 }

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import WebKit
 
 class EpubTableViewController: NSViewController {
 
@@ -14,7 +15,8 @@ class EpubTableViewController: NSViewController {
 
 	var epubFile: EpubFile?
 
-	var ePubViewControllers: [EpubViewController] = []
+	var ePubViews: [WebView] = []
+	var epubViewHeights: [Int] = []
 
 //	override var nibName: String {
 //		return "EpubTableViewController"
@@ -25,19 +27,12 @@ class EpubTableViewController: NSViewController {
 	}
 
 	init(file: String) {
+		super.init(nibName: nil, bundle: nil)!
+
 		epubFile = EpubFile(file: file)
 //		print("ePub title: \(epubFile?.title!)")
 
-		for index in 0...((epubFile?.documentCount)! - 1) {
-			print("Index: \(index)")
-			let epubViewController = EpubViewController(epubFile: epubFile!)
-			epubViewController.htmlForIndex(index: index)
-
-			epubViewController.view.autoresizingMask = NSAutoresizingMaskOptions([.viewWidthSizable, .viewMaxXMargin, .viewMinYMargin, .viewHeightSizable, .viewMaxYMargin])
-			ePubViewControllers.append(epubViewController)
-		}
-
-		super.init(nibName: nil, bundle: nil)!
+		initWebViews()
 	}
 
 	required init?(coder aDecoder: NSCoder) {
@@ -45,12 +40,36 @@ class EpubTableViewController: NSViewController {
 	}
 
 	override func viewDidLoad() {
-        super.viewDidLoad()
+		super.viewDidLoad()
 
 		tableView.delegate = self
 		tableView.dataSource = self
-    }
+	}
 
+	func initWebViews() {
+		for index in 0 ... ((epubFile?.documentCount)! - 1) {
+			print("Index: \(index)")
+
+			let html = epubFile?.htmlForIndex(index: index)
+
+			let webView = WebView(frame: self.view.bounds)
+			let baseURL = URL(fileURLWithPath: (epubFile?.fileForIndex(index: index))!).deletingLastPathComponent()
+			webView.mainFrame.loadHTMLString(html, baseURL: baseURL)
+
+			webView.mainFrame.frameView.allowsScrolling = false
+			webView.wantsLayer = true
+
+			webView.frameLoadDelegate = self
+			webView.resourceLoadDelegate = self
+			webView.policyDelegate = self
+
+			webView.autoresizingMask = NSAutoresizingMaskOptions([.viewWidthSizable, .viewMaxXMargin, .viewMinYMargin, .viewHeightSizable, .viewMaxYMargin])
+			ePubViews.append(webView)
+
+			epubViewHeights.append(200)
+		}
+
+	}
 }
 
 extension EpubTableViewController: NSTableViewDataSource {
@@ -59,61 +78,92 @@ extension EpubTableViewController: NSTableViewDataSource {
 		return epubFile?.documentList.count ?? 0
 	}
 
-//	func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-//
-//	}
-
 }
 
 // height: https://stackoverflow.com/questions/7504546/view-based-nstableview-with-rows-that-have-dynamic-heights?rq=1
 
 extension EpubTableViewController: NSTableViewDelegate {
 
-//	func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-//		guard let epubDocument = epubFile?.documentList[row] else {
-//			return nil
-//		}
-//
-//		let epubViewController = EpubViewController()
-//		epubViewController.htmlForIndex(index: row)
-//		return epubViewController.view
-//	}
-
 	func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-//		return ePubViewControllers[row].webView!.frame.height
-		return CGFloat(500)
+		if epubViewHeights.count == (epubFile?.documentCount)! {
+			return CGFloat(epubViewHeights[row])
+		} else {
+			return CGFloat(300)
+		}
 	}
 
-//	func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
-//		if let rowView = tableView.make(withIdentifier: "tableRow", owner: self) as? NSTableRowView {
-//			rowView.addSubview(ePubViewControllers[row].view)
-//			return rowView
-//		}
-//		return nil
-//	}
-
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-		var cellIdentifier: String = ""
-
-		return ePubViewControllers[row].view
-
 		guard (epubFile?.documentList[row]) != nil else {
 			return nil
 		}
+		return ePubViews[row]
+	}
 
-		if tableColumn == tableView.tableColumns[0] {
-			cellIdentifier = "FileCell"
+}
+
+// https://stackoverflow.com/questions/2675244/how-to-resize-webview-according-to-its-content
+// https://stackoverflow.com/questions/3936041/how-to-determine-the-content-size-of-a-uiwebview
+// https://stackoverflow.com/questions/19885771/resizing-a-webview-instance
+// https://stackoverflow.com/questions/8307776/resizing-uiwebview-height-to-fit-content
+// https://stackoverflow.com/questions/10294164/webview-dynamic-resize-to-content-size?noredirect=1&lq=1
+
+extension EpubTableViewController: WebFrameLoadDelegate {
+
+	func webView(_ sender: WebView!, didFinishLoadFor frame: WebFrame!) {
+
+		for ePubView in ePubViews {
+			if sender == ePubView {
+				let heightString = sender.stringByEvaluatingJavaScript(from: "document.body.scrollHeight")
+//				let heightString = sender.stringByEvaluatingJavaScript(from: "document.getElementsByTagName('body')[0].offsetHeight")
+//				let heightString = sender.stringByEvaluatingJavaScript(from: "document.documentElement.scrollHeight")
+
+				let index = ePubViews.index(of: ePubView)
+				print("webView \(index) height: \(heightString)")
+				epubViewHeights[index!] = Int(heightString!)!
+
+				tableView.reloadData()
+			}
 		}
 
-		if let cell = tableView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
+	}
 
-//			cell.addSubview(ePubViewControllers[row].view)
-//			cell.frame = ePubViewControllers[row].view.frame
-//			cell.setNeedsDisplay(ePubViewControllers[row].view.frame)
+	func webView(_ sender: WebView!, didStartProvisionalLoadFor frame: WebFrame!) {
+		//		webView.mainFrame.provisionalDataSource
+//		print("didStartProvisionalLoadForFrame: \(frame)")
+	}
 
-//			return cell
+}
+
+extension EpubTableViewController: WebResourceLoadDelegate {
+
+	func webView(_ sender: WebView!, resource identifier: Any!, willSend request: URLRequest!, redirectResponse: URLResponse!, from dataSource: WebDataSource!) -> URLRequest! {
+//        print("redirectResponse request: \(request.url!)")
+//		print("redirectResponse resource: \(identifier)")
+
+		guard let url = request.url else {
+			return request
 		}
-		return nil
+
+		if url.scheme == "file" {
+			let anchorFromURL = url.fragment
+			let path = url.path
+			print("willSend request: path \(path) anchorFromURL: \(anchorFromURL)")
+		}
+
+		return request
+//		return nil
+	}
+
+}
+
+extension EpubTableViewController: WebPolicyDelegate {
+
+	//	func webView(_ sender: WebView!, resource: Any!, error: Error!, from: WebDataSource!) {
+	//		print("WebPolicyDelegate error: \(error)")
+	//	}
+
+	func webView(_ webView: WebView!, decidePolicyForNewWindowAction actionInformation: [AnyHashable: Any]!, request: URLRequest!, newFrameName frameName: String!, decisionListener listener: WebPolicyDecisionListener!) {
+//        print("decidePolicyForNewWindowAction: \(request.url)")
 	}
 
 }
