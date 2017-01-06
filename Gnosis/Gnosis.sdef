@@ -5,6 +5,40 @@
 
     <suite name="Standard Suite" code="????" description="Common classes and commands for all applications.">
 
+        <command name="open" code="aevtodoc" description="Open a document.">
+            <direct-parameter description="The file(s) to be opened.">
+                <type type="file"/>
+                <type type="file" list="yes"/>
+            </direct-parameter>
+            <result description="The opened document(s).">
+                <type type="document"/>
+                <type type="document" list="yes"/>
+            </result>
+        </command>
+
+        <command name="close" code="coreclos" description="Close a document.">
+            <cocoa class="NSCloseCommand"/>
+            <access-group identifier="*"/>
+            <direct-parameter type="specifier" requires-access="r"
+                              description="the document(s) or window(s) to close."/>
+            <parameter name="saving" code="savo" type="save options" optional="yes"
+                       description="Should changes be saved before closing?">
+                <cocoa key="SaveOptions"/>
+            </parameter>
+            <parameter name="saving in" code="kfil" type="file" optional="yes"
+                       description="The file in which to save the document, if so.">
+                <cocoa key="File"/>
+            </parameter>
+        </command>
+
+        <command name="quit" code="aevtquit" description="Quit the application.">
+            <cocoa class="NSQuitCommand"/>
+            <parameter name="saving" code="savo" type="save options" optional="yes"
+                       description="Should changes be saved before quitting?">
+                <cocoa key="SaveOptions"/>
+            </parameter>
+        </command>
+
         <command name="count" code="corecnte"
                  description="Return the number of elements of a particular class within an object.">
             <cocoa class="NSCountCommand"/>
@@ -74,6 +108,9 @@
             </property>
             <property name="version" code="vers" type="text" access="r"
                       description="The version number of the application."/>
+            <element type="document">
+                <cocoa key="orderedDocuments"/>
+            </element>
             <element type="window" access="r">
                 <cocoa key="orderedWindows"/>
             </element>
@@ -85,6 +122,23 @@
             </responds-to>
             <responds-to command="quit">
                 <cocoa method="handleQuitScriptCommand:"/>
+            </responds-to>
+        </class>
+
+        <class name="document" code="docu" description="A document.">
+            <cocoa class="NSDocument"/>
+            <property name="name" code="pnam" type="text" access="r" description="Its name.">
+                <cocoa key="displayName"/>
+            </property>
+            <property name="modified" code="imod" type="boolean" access="r"
+                      description="Has it been modified since the last save?">
+                <cocoa key="isDocumentEdited"/>
+            </property>
+            <property name="file" code="file" type="file" access="r" description="Its location on disk, if it has one.">
+                <cocoa key="fileURL"/>
+            </property>
+            <responds-to command="close">
+                <cocoa method="handleCloseScriptCommand:"/>
             </responds-to>
         </class>
 
@@ -128,6 +182,11 @@
             <property name="zoomed" code="pzum" type="boolean" description="Is the window zoomed right now?">
                 <cocoa key="isZoomed"/>
             </property>
+            <property name="document" code="docu" type="document" access="r"
+                      description="The document whose contents are displayed in the window."/>
+            <responds-to command="close">
+                <cocoa method="handleCloseScriptCommand:"/>
+            </responds-to>
         </class>
 
     </suite>
@@ -139,41 +198,6 @@
         <!-- 2 -->
         <class name="application" code="capp" description="An application's top level scripting object.">
             <cocoa class="NSApplication"/>
-
-            <!-- 3 -->
-            <element type="epub" access="r">
-                <cocoa key="epubs"/>
-            </element>
-        </class>
-
-        <!-- Insert command here -->
-
-        <!-- 4 -->
-        <class name="epub" code="ePuB" description="An ePub file" plural="epubs">
-            <cocoa class="GnosisEpub"/>
-
-            <!-- 5 -->
-            <property name="file" code="fIlE" type="text" access="r"
-                      description="The path of the ePub file.">
-                <cocoa key="filePath"/>
-            </property>
-
-            <property name="name" code="pnam" type="text" access="r"
-                      description="The title of the ePub.">
-                <cocoa key="title"/>
-            </property>
-
-
-            <property name="authors" code="pnam" type="text" access="r"
-                      description="The authors of the ePub.">
-                <cocoa key="authors"/>
-            </property>
-
-            <!-- 7 -->
-            <!-- Insert element of tags here -->
-
-            <!-- Insert responds-to command here -->
-
         </class>
 
     </suite>
