@@ -13,7 +13,7 @@ class EpubTableViewController: NSViewController {
 
 	@IBOutlet weak var tableView: NSTableView!
 
-	var epubFile: EpubFile?
+	var epubFile: GnosisEpub?
 
 	var ePubViews: [WebView] = []
 	var epubViewHeights: [Int] = []
@@ -29,7 +29,7 @@ class EpubTableViewController: NSViewController {
 	init(file: String) {
 		super.init(nibName: nil, bundle: nil)!
 
-		epubFile = EpubFile(file: file)
+		epubFile = GnosisEpub(file: file)
 //		print("ePub title: \(epubFile?.title!)")
 
 		initWebViews()
@@ -100,10 +100,10 @@ extension EpubTableViewController: NSTableViewDelegate {
 	}
 
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-		guard (epubFile?.documentList[row]) != nil else {
+		guard let epubView: WebView = ePubViews[row] else {
 			return nil
 		}
-		return ePubViews[row]
+		return epubView
 	}
 
 }
@@ -125,7 +125,7 @@ extension EpubTableViewController: WebFrameLoadDelegate {
 //				let heightString = sender.stringByEvaluatingJavaScript(from: "document.documentElement.scrollHeight")
 
 				let index = ePubViews.index(of: ePubView)
-				print("webView \(index) height: \(heightString)")
+//				print("webView \(index) height: \(heightString)")
 				epubViewHeights[index!] = Int(heightString!)!
 
 				tableView.reloadData()
@@ -154,7 +154,7 @@ extension EpubTableViewController: WebResourceLoadDelegate {
 		if url.scheme == "file" {
 			let anchorFromURL = url.fragment
 			let path = url.path
-			print("willSend request: path \(path) anchorFromURL: \(anchorFromURL)")
+//			print("willSend request: path \(path) anchorFromURL: \(anchorFromURL)")
 		}
 
 		return request

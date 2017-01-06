@@ -11,7 +11,7 @@ import Cocoa
 class Document: NSDocument {
 
 	var mainWindowController: NSWindowController?
-	var epubFile: EpubFile?
+	var epubFile: GnosisEpub?
 
 	override init() {
 	    super.init()
@@ -45,7 +45,7 @@ class Document: NSDocument {
 		// You can also choose to override readFromFileWrapper:ofType:error: or readFromURL:ofType:error: instead.
 		// If you override either of these, you should also override -isEntireFileLoaded to return false if the contents are lazily loaded.
 		
-		epubFile = EpubFile(file: url.path)
+		epubFile = GnosisEpub(file: url.path)
 
 //		throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
 	}

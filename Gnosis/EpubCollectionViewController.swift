@@ -14,7 +14,7 @@ class EpubCollectionViewController: NSViewController {
 
 	let epubCollectionViewItemIdentifier = "epubCollectionViewItem"
 
-	var epubFile: EpubFile?
+	var epubFile: GnosisEpub?
 	var ePubViewControllers: [EpubViewController] = []
 
 	override var nibName: String {
@@ -22,7 +22,7 @@ class EpubCollectionViewController: NSViewController {
 	}
 
 	init(file: String) {
-		epubFile = EpubFile(file: file)
+		epubFile = GnosisEpub(file: file)
 
 		for index in 0...((epubFile?.documentCount)! - 1) {
 			print("Index: \(index)")

@@ -16,7 +16,7 @@ class EpubViewController: NSViewController {
 
 	var webView: WebView?
 
-	var epubFile: EpubFile?
+	var epubFile: GnosisEpub?
 	var EpubFilePath: String!
 
 	//    var bookFile: String = ""
@@ -28,13 +28,13 @@ class EpubViewController: NSViewController {
 	}
 
 	init(file: String) {
-		epubFile = EpubFile(file: file)
+		epubFile = GnosisEpub(file: file)
 		print("ePub title: \(epubFile?.title!)")
 
 		super.init(nibName: nil, bundle: nil)!
 	}
 
-	init(epubFile: EpubFile) {
+	init(epubFile: GnosisEpub) {
 		self.epubFile = epubFile
 		print("ePub title: \(epubFile.title!)")
 

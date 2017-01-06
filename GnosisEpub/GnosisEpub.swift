@@ -14,6 +14,9 @@ import Ji
 @objc(Epub) class GnosisEpub: NSObject {
 	// MARK: Variables
 	var filePath = String()
+	var contents = [GnosisEpubContentsEntry]()
+
+
 	var fileArchive: UZKArchive?
 	var extractedPath = String()
 
@@ -23,9 +26,6 @@ import Ji
 	var documentCount = 0
 
 	var currentDocument: Int = -1
-
-	//    var author = String()
-	//    var title = String()
 
 	// MARK: ePub metadata
 
@@ -162,6 +162,8 @@ import Ji
 			self.extractedPath = cachePath
 		}
 		print("Extracted path: \(self.extractedPath)")
+
+		parseContents()
 		extractFile()
 	}
 
@@ -169,7 +171,7 @@ import Ji
 		let appDescription = NSApplication.shared().classDescription as! NSScriptClassDescription
 
 		let specifier = NSUniqueIDSpecifier(containerClassDescription: appDescription,
-		                                    containerSpecifier: nil, key: "epubs", uniqueID: filePath)
+				containerSpecifier: nil, key: "epubs", uniqueID: filePath)
 		return specifier
 	}
 
@@ -190,12 +192,12 @@ import Ji
 		print("File uuid: \(uuid!)")
 
 		let path = NSSearchPathForDirectoriesInDomains(
-			.cachesDirectory, .userDomainMask, true
-			).first! + "/" + Bundle.main.bundleIdentifier!
+				.cachesDirectory, .userDomainMask, true
+		).first! + "/" + Bundle.main.bundleIdentifier!
 
 		// create parent directory if it doesn't exist
 		let _ = try! FileManager.default.createDirectory(
-			atPath: path, withIntermediateDirectories: true, attributes: nil
+				atPath: path, withIntermediateDirectories: true, attributes: nil
 		)
 		if let uuid = uuid {
 			return path + "/" + uuid + "/"
@@ -210,6 +212,49 @@ import Ji
 		} catch {
 			print("Error extracting file: \(error)")
 		}
+	}
+
+	func parseContents() {
+		let contentsNode = manifestNode?.firstChildWithAttributeName("id", attributeValue: "ncx")
+
+		guard let contentsJiNode = contentsNode,
+			let contentsHref = contentsJiNode["href"],
+			let basePath = innerBasePath else {
+			return
+		}
+
+		do {
+			let optionalContentsData = try fileArchive?.extractData(fromFile: basePath + contentsHref, progress: nil) as Data?
+
+			guard let contentsData = optionalContentsData else {
+				return
+			}
+
+			let ncxXml = Ji(data: contentsData, isXML: true)
+			let navPoints = ncxXml?.rootNode?.firstChildWithName("navMap")?.descendantsWithName("navPoint")
+
+			for child in navPoints! {
+				let entryId = child["id"]
+				let entryPlayOrder = Int(child["playOrder"]!)
+				let entrySrc = child.descendantsWithName("content").first?["src"]
+				let entryTitle = child.descendantsWithName("text").first?.content
+
+				guard let id = entryId, let title = entryTitle, let src = entrySrc else {
+					continue
+				}
+
+				let playOrder = entryPlayOrder ?? nil
+				let contentsEntry = GnosisEpubContentsEntry(id: id, playOrder: playOrder, title: title, src: src)
+
+				contents.append(contentsEntry)
+			}
+		} catch let error {
+			print("Error parsing contents: \(error)")
+		}
+
+//		for content in contents {
+//			print("Contents: \(content.id), \(content.title), \(content.src)")
+//		}
 	}
 
 	func parseSpine() {

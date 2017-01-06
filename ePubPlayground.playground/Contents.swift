@@ -7,7 +7,7 @@ import PlaygroundSupport
 
 PlaygroundPage.current.needsIndefiniteExecution = true
 
-struct GnosisEpubTocEntry {
+struct GnosisEpubContentsEntry {
 	var id: String = ""
 	var playOrder: Int?
 	var title: String = ""
@@ -23,7 +23,7 @@ struct GnosisEpubTocEntry {
 	
 }
 
-var tocEntries = [GnosisEpubTocEntry]()
+var contentsEnties = [GnosisEpubContentsEntry]()
 
 let tocFile = Bundle.main.path(forResource: "toc", ofType: "ncx")
 let ncxXml = Ji(contentsOfURL: URL(fileURLWithPath: tocFile!), isXML: true)
@@ -34,18 +34,49 @@ let children = navPoints?.children
 for child in children! {
 	let entryId = child["id"]
 	let entryPlayOrder = Int(child["playOrder"]!)
-	let entrySrc = children![0].descendantsWithName("content").first?["src"]
-	let entryTitle = children![0].descendantsWithName("text").first?.content
+	let entrySrc = child.descendantsWithName("content").first?["src"]
+	let entryTitle = child.descendantsWithName("text").first?.content
 
 	guard let id = entryId, let title = entryTitle, let src = entrySrc else {
 		continue
 	}
 	
 	let playOrder = entryPlayOrder ?? nil
-	let tocEntry = GnosisEpubTocEntry(id: id, playOrder: playOrder, title: title, src: src)
+	let tocEntry = GnosisEpubContentsEntry(id: id, playOrder: playOrder, title: title, src: src)
 
-	tocEntries.append(tocEntry)
+	contentsEnties.append(tocEntry)
 }
 
-// let id = tocEntries[0].id
+print("Entries: \(contentsEnties.count)")
+for entry in contentsEnties {
+	print("Entry: \(entry.id), \(entry.title), \(entry.src)")
+}
+
+// 2nd attempt
+
+var contentsEntries2 = [GnosisEpubContentsEntry]()
+
+let children2 = navPoints?.descendantsWithName("navPoint")
+for child in children2! {
+	let entryId = child["id"]
+	let entryPlayOrder = Int(child["playOrder"]!)
+	let entrySrc = child.descendantsWithName("content").first?["src"]
+	let entryTitle = child.descendantsWithName("text").first?.content
+	
+	guard let id = entryId, let title = entryTitle, let src = entrySrc else {
+		continue
+	}
+	
+	let playOrder = entryPlayOrder ?? nil
+	let tocEntry = GnosisEpubContentsEntry(id: id, playOrder: playOrder, title: title, src: src)
+	
+	contentsEntries2.append(tocEntry)
+}
+
+print("Entries: \(contentsEntries2.count)")
+for entry in contentsEntries2 {
+	print("Entry2: \(entry.id), \(entry.title), \(entry.src)")
+}
+
+
 
