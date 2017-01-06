@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		304CA4EF1FC22F92C2A68736 /* EpubFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304CAD45F6097EDEE13E6459 /* EpubFile.swift */; };
 		4E0282051E179CAC005111D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282041E179CAC005111D2 /* AppDelegate.swift */; };
 		4E0282071E179CAC005111D2 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282061E179CAC005111D2 /* Document.swift */; };
 		4E02820A1E179CAC005111D2 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282081E179CAC005111D2 /* Document.xib */; };
@@ -31,7 +32,6 @@
 		4E0282461E17BFFC005111D2 /* epub-test3.epub in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282411E17BFFC005111D2 /* epub-test3.epub */; };
 		4E0282471E17BFFC005111D2 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282421E17BFFC005111D2 /* style.css */; };
 		4E0282481E17BFFC005111D2 /* style2.css in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282431E17BFFC005111D2 /* style2.css */; };
-		4E02824B1E17C021005111D2 /* EpubFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282491E17C021005111D2 /* EpubFile.swift */; };
 		4E02824C1E17C021005111D2 /* Gnosis.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 4E02824A1E17C021005111D2 /* Gnosis.sdef */; };
 		4E02824E1E17C3A6005111D2 /* FileLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02824D1E17C3A6005111D2 /* FileLibrary.swift */; };
 		4E0282511E188113005111D2 /* EpubTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02824F1E188113005111D2 /* EpubTableViewController.swift */; };
@@ -51,6 +51,55 @@
 			proxyType = 1;
 			remoteGlobalIDString = 4E0282001E179CAC005111D2;
 			remoteInfo = Gnosis;
+		};
+		4E8618581E1F0EDA006DF350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E43D74D61B8FBBBF00702114;
+			remoteInfo = "Ji iOS";
+		};
+		4E86185A1E1F0EDA006DF350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E43A4D831BD838FC003CB3D7;
+			remoteInfo = "Ji OSX";
+		};
+		4E86185C1E1F0EDA006DF350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E43A4E241BD842B6003CB3D7;
+			remoteInfo = "Ji tvOS";
+		};
+		4E86185E1E1F0EDA006DF350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E43A4DDE1BD83FBF003CB3D7;
+			remoteInfo = "Ji watchOS";
+		};
+		4E8618601E1F0EDA006DF350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E43D75061B8FE82100702114;
+			remoteInfo = "Ji iOS Tests";
+		};
+		4E8618621E1F0EDA006DF350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E43A4D8C1BD838FD003CB3D7;
+			remoteInfo = "Ji OSX Tests";
+		};
+		4E8618641E1F0EDA006DF350 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E43A4E2D1BD842B6003CB3D7;
+			remoteInfo = "Ji tvOS Tests";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -83,6 +132,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		304CAD45F6097EDEE13E6459 /* EpubFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EpubFile.swift; path = GnosisEpub/EpubFile.swift; sourceTree = "<group>"; };
 		4E0282011E179CAC005111D2 /* Gnosis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gnosis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E0282041E179CAC005111D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E0282061E179CAC005111D2 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
@@ -108,13 +158,14 @@
 		4E0282411E17BFFC005111D2 /* epub-test3.epub */ = {isa = PBXFileReference; lastKnownFileType = file; path = "epub-test3.epub"; sourceTree = "<group>"; };
 		4E0282421E17BFFC005111D2 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
 		4E0282431E17BFFC005111D2 /* style2.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = style2.css; sourceTree = "<group>"; };
-		4E0282491E17C021005111D2 /* EpubFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpubFile.swift; sourceTree = "<group>"; };
 		4E02824A1E17C021005111D2 /* Gnosis.sdef */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Gnosis.sdef; sourceTree = "<group>"; };
 		4E02824D1E17C3A6005111D2 /* FileLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileLibrary.swift; sourceTree = "<group>"; };
 		4E02824F1E188113005111D2 /* EpubTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpubTableViewController.swift; sourceTree = "<group>"; };
 		4E0282501E188113005111D2 /* EpubTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpubTableViewController.xib; sourceTree = "<group>"; };
 		4E0282531E1904D1005111D2 /* EpubTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpubTableCellView.swift; sourceTree = "<group>"; };
 		4E86184B1E1D55EE006DF350 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../System/Library/Frameworks/QuartzCore.framework; sourceTree = "<group>"; };
+		4E86184D1E1E5C6F006DF350 /* ePubPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ePubPlayground.playground; sourceTree = "<group>"; };
+		4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Ji.xcodeproj; path = Carthage/Checkouts/Ji/Ji.xcodeproj; sourceTree = "<group>"; };
 		4EE53D121E192523004052FE /* EpubCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpubCollectionViewItem.swift; sourceTree = "<group>"; };
 		4EE53D131E192523004052FE /* EpubCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpubCollectionViewItem.xib; sourceTree = "<group>"; };
 		4EE53D161E193142004052FE /* EpubCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpubCollectionViewController.swift; sourceTree = "<group>"; };
@@ -146,7 +197,9 @@
 		4E0281F81E179CAC005111D2 = {
 			isa = PBXGroup;
 			children = (
+				4E86184D1E1E5C6F006DF350 /* ePubPlayground.playground */,
 				4E0282031E179CAC005111D2 /* Gnosis */,
+				4EFE3F061E1F7DC00064E965 /* GnosisEpub */,
 				4E02823E1E17BFFC005111D2 /* Shared */,
 				4E0282181E179CAD005111D2 /* GnosisUITests */,
 				4E02823D1E17BFDD005111D2 /* Frameworks */,
@@ -177,7 +230,6 @@
 				4E0282281E17BF6B005111D2 /* EpubViewController.swift */,
 				4E0282291E17BF6B005111D2 /* EpubViewController.xib */,
 				4E02824D1E17C3A6005111D2 /* FileLibrary.swift */,
-				4E0282491E17C021005111D2 /* EpubFile.swift */,
 				4E02824A1E17C021005111D2 /* Gnosis.sdef */,
 				4E02824F1E188113005111D2 /* EpubTableViewController.swift */,
 				4E0282501E188113005111D2 /* EpubTableViewController.xib */,
@@ -186,6 +238,7 @@
 				4EE53D131E192523004052FE /* EpubCollectionViewItem.xib */,
 				4EE53D161E193142004052FE /* EpubCollectionViewController.swift */,
 				4EE53D171E193142004052FE /* EpubCollectionViewController.xib */,
+				304CAD45F6097EDEE13E6459 /* EpubFile.swift */,
 			);
 			path = Gnosis;
 			sourceTree = "<group>";
@@ -202,6 +255,7 @@
 		4E02823D1E17BFDD005111D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */,
 				4E86184B1E1D55EE006DF350 /* QuartzCore.framework */,
 				4E0282371E17BFA7005111D2 /* Ji.framework.dSYM */,
 				4E0282381E17BFA7005111D2 /* UnzipKit.framework.dSYM */,
@@ -223,6 +277,27 @@
 				4E0282431E17BFFC005111D2 /* style2.css */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		4E86184F1E1F0ED9006DF350 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4E8618591E1F0EDA006DF350 /* Ji.framework */,
+				4E86185B1E1F0EDA006DF350 /* Ji.framework */,
+				4E86185D1E1F0EDA006DF350 /* Ji.framework */,
+				4E86185F1E1F0EDA006DF350 /* Ji.framework */,
+				4E8618611E1F0EDA006DF350 /* Ji iOS Tests.xctest */,
+				4E8618631E1F0EDA006DF350 /* Ji OSX Tests.xctest */,
+				4E8618651E1F0EDA006DF350 /* Ji tvOS Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4EFE3F061E1F7DC00064E965 /* GnosisEpub */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = GnosisEpub;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +372,12 @@
 			mainGroup = 4E0281F81E179CAC005111D2;
 			productRefGroup = 4E0282021E179CAC005111D2 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 4E86184F1E1F0ED9006DF350 /* Products */;
+					ProjectRef = 4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				4E0282001E179CAC005111D2 /* Gnosis */,
@@ -304,6 +385,58 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		4E8618591E1F0EDA006DF350 /* Ji.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Ji.framework;
+			remoteRef = 4E8618581E1F0EDA006DF350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E86185B1E1F0EDA006DF350 /* Ji.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Ji.framework;
+			remoteRef = 4E86185A1E1F0EDA006DF350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E86185D1E1F0EDA006DF350 /* Ji.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Ji.framework;
+			remoteRef = 4E86185C1E1F0EDA006DF350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E86185F1E1F0EDA006DF350 /* Ji.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Ji.framework;
+			remoteRef = 4E86185E1E1F0EDA006DF350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E8618611E1F0EDA006DF350 /* Ji iOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Ji iOS Tests.xctest";
+			remoteRef = 4E8618601E1F0EDA006DF350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E8618631E1F0EDA006DF350 /* Ji OSX Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Ji OSX Tests.xctest";
+			remoteRef = 4E8618621E1F0EDA006DF350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		4E8618651E1F0EDA006DF350 /* Ji tvOS Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "Ji tvOS Tests.xctest";
+			remoteRef = 4E8618641E1F0EDA006DF350 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		4E0281FF1E179CAC005111D2 /* Resources */ = {
@@ -344,13 +477,13 @@
 				4E0282511E188113005111D2 /* EpubTableViewController.swift in Sources */,
 				4E0282541E1904D2005111D2 /* EpubTableCellView.swift in Sources */,
 				4EE53D181E193142004052FE /* EpubCollectionViewController.swift in Sources */,
-				4E02824B1E17C021005111D2 /* EpubFile.swift in Sources */,
 				4E0282071E179CAC005111D2 /* Document.swift in Sources */,
 				4E0282051E179CAC005111D2 /* AppDelegate.swift in Sources */,
 				4E02824E1E17C3A6005111D2 /* FileLibrary.swift in Sources */,
 				4E02822A1E17BF6B005111D2 /* EpubViewController.swift in Sources */,
 				4E0282261E17A8EB005111D2 /* MainWindowController.swift in Sources */,
 				4EE53D141E192523004052FE /* EpubCollectionViewItem.swift in Sources */,
+				304CA4EF1FC22F92C2A68736 /* EpubFile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

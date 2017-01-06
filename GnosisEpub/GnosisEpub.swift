@@ -1,5 +1,5 @@
 //
-//  EpubFile.swift
+//  GnosisEpub.swift
 //  Gnosis
 //
 //  Created by Gennaios on 24/12/2016.
@@ -11,7 +11,7 @@ import Foundation
 import UnzipKit
 import Ji
 
-@objc(Epub) class EpubFile: NSObject {
+@objc(Epub) class GnosisEpub: NSObject {
 	// MARK: Variables
 	var filePath = String()
 	var fileArchive: UZKArchive?

@@ -86,6 +86,13 @@ extension EpubTableViewController: NSTableViewDelegate {
 
 	func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
 		if epubViewHeights.count == (epubFile?.documentCount)! {
+//			let view = tableView.view(atColumn: 1, row: row, makeIfNecessary: false) as! WebView
+//			let heightString = view.stringByEvaluatingJavaScript(from: "document.body.scrollHeight")
+//
+//			if epubViewHeights[row] != Int(heightString!)! {
+//				epubViewHeights[row] = Int(heightString!)!
+//				tableView.reloadData()
+//			}
 			return CGFloat(epubViewHeights[row])
 		} else {
 			return CGFloat(300)

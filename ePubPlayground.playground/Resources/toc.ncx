@@ -1,0 +1,177 @@
+<?xml version='1.0' encoding='utf-8'?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1" xml:lang="en">
+  <head>
+    <meta content="0ad84514-fc74-4d7f-ad96-2686234ce6ec" name="dtb:uid"/>
+    <meta content="3" name="dtb:depth"/>
+    <meta content="calibre (2.12.0)" name="dtb:generator"/>
+    <meta content="0" name="dtb:totalPageCount"/>
+    <meta content="0" name="dtb:maxPageNumber"/>
+  </head>
+  <docTitle>
+    <text>ePub Reader Test</text>
+  </docTitle>
+  <navMap>
+    <navPoint id="num_1" playOrder="1">
+      <navLabel>
+        <text>Title Page</text>
+      </navLabel>
+      <content src="Text/Title.xhtml"/>
+    </navPoint>
+    <navPoint id="num_2" playOrder="2">
+      <navLabel>
+        <text>Default Margins</text>
+      </navLabel>
+      <content src="Text/Margins.xhtml"/>
+    </navPoint>
+    <navPoint id="num_3" playOrder="3">
+      <navLabel>
+        <text>No Margins</text>
+      </navLabel>
+      <content src="Text/NoMargins.xhtml"/>
+    </navPoint>
+    <navPoint id="num_4" playOrder="4">
+      <navLabel>
+        <text>Pagebreak Tests</text>
+      </navLabel>
+      <content src="Text/Pagebreak.xhtml"/>
+    </navPoint>
+    <navPoint id="num_5" playOrder="5">
+      <navLabel>
+        <text>Justification Test</text>
+      </navLabel>
+      <content src="Text/Justification.xhtml"/>
+    </navPoint>
+    <navPoint id="num_6" playOrder="6">
+      <navLabel>
+        <text>Centering</text>
+      </navLabel>
+      <content src="Text/Center.xhtml"/>
+    </navPoint>
+    <navPoint id="num_7" playOrder="7">
+      <navLabel>
+        <text>Auto Margins</text>
+      </navLabel>
+      <content src="Text/AutoMargins.xhtml"/>
+    </navPoint>
+    <navPoint id="num_8" playOrder="8">
+      <navLabel>
+        <text>Long Paragraphs</text>
+      </navLabel>
+      <content src="Text/LongParagraph.xhtml"/>
+    </navPoint>
+    <navPoint id="num_9" playOrder="9">
+      <navLabel>
+        <text>Empty Elements</text>
+      </navLabel>
+      <content src="Text/Empty.xhtml"/>
+    </navPoint>
+    <navPoint id="num_10" playOrder="10">
+      <navLabel>
+        <text>Scale Tests</text>
+      </navLabel>
+      <content src="Text/Size.xhtml"/>
+    </navPoint>
+    <navPoint id="num_11" playOrder="11">
+      <navLabel>
+        <text>Font Size and Scale Tests</text>
+      </navLabel>
+      <content src="Text/FontSize.xhtml"/>
+    </navPoint>
+    <navPoint id="num_12" playOrder="12">
+      <navLabel>
+        <text>Headers and Footers</text>
+      </navLabel>
+      <content src="Text/HeadersFooters.xhtml"/>
+    </navPoint>
+    <navPoint id="num_13" playOrder="13">
+      <navLabel>
+        <text>PNG Support</text>
+      </navLabel>
+      <content src="Text/PNGImages.xhtml"/>
+    </navPoint>
+    <navPoint id="num_14" playOrder="14">
+      <navLabel>
+        <text>SVG Support</text>
+      </navLabel>
+      <content src="Text/SVG.xhtml"/>
+    </navPoint>
+    <navPoint id="num_15" playOrder="15">
+      <navLabel>
+        <text>Links Test</text>
+      </navLabel>
+      <content src="Text/Links.xhtml"/>
+      <navPoint id="num_16" playOrder="16">
+        <navLabel>
+          <text>Hyperlink Landing 1</text>
+        </navLabel>
+        <content src="Text/Target1.xhtml"/>
+      </navPoint>
+      <navPoint id="num_17" playOrder="17">
+        <navLabel>
+          <text>Hyperlink Landing 2</text>
+        </navLabel>
+        <content src="Text/Target2.xhtml"/>
+      </navPoint>
+    </navPoint>
+    <navPoint id="num_18" playOrder="18">
+      <navLabel>
+        <text>Default Fonts</text>
+      </navLabel>
+      <content src="Text/DefaultFonts.xhtml"/>
+    </navPoint>
+    <navPoint id="num_19" playOrder="19">
+      <navLabel>
+        <text>Smallcaps</text>
+      </navLabel>
+      <content src="Text/Smallcaps.xhtml"/>
+    </navPoint>
+    <navPoint id="num_20" playOrder="20">
+      <navLabel>
+        <text>Spaces</text>
+      </navLabel>
+      <content src="Text/Spaces.xhtml"/>
+    </navPoint>
+    <navPoint id="num_21" playOrder="21">
+      <navLabel>
+        <text>Embedded Fonts</text>
+      </navLabel>
+      <content src="Text/EmbeddedFonts.xhtml"/>
+    </navPoint>
+    <navPoint id="num_22" playOrder="22">
+      <navLabel>
+        <text>Ligatures Test</text>
+      </navLabel>
+      <content src="Text/Ligatures.xhtml"/>
+    </navPoint>
+    <navPoint id="num_23" playOrder="23">
+      <navLabel>
+        <text>Unicode Coverage</text>
+      </navLabel>
+      <content src="Text/Unicode.xhtml"/>
+    </navPoint>
+    <navPoint id="num_24" playOrder="24">
+      <navLabel>
+        <text>Bidirectional Support</text>
+      </navLabel>
+      <content src="Text/Bidi.xhtml"/>
+    </navPoint>
+    <navPoint id="num_25" playOrder="25">
+      <navLabel>
+        <text>Custom Entities</text>
+      </navLabel>
+      <content src="Text/Entities.xhtml"/>
+    </navPoint>
+    <navPoint id="num_26" playOrder="26">
+      <navLabel>
+        <text>Trimmed Characters in Fonts</text>
+      </navLabel>
+      <content src="Text/TrimmedFonts.xhtml"/>
+    </navPoint>
+    <navPoint id="num_27" playOrder="27">
+      <navLabel>
+        <text>Other issues</text>
+      </navLabel>
+      <content src="Text/Other.xhtml"/>
+    </navPoint>
+  </navMap>
+</ncx>

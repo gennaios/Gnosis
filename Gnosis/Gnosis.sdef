@@ -150,7 +150,7 @@
 
         <!-- 4 -->
         <class name="epub" code="ePuB" description="An ePub file" plural="epubs">
-            <cocoa class="EpubFile"/>
+            <cocoa class="GnosisEpub"/>
 
             <!-- 5 -->
             <property name="file" code="fIlE" type="text" access="r"
