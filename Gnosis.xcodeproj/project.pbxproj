@@ -28,8 +28,6 @@
 		4E02823B1E17BFA7005111D2 /* UnzipKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E0282381E17BFA7005111D2 /* UnzipKit.framework.dSYM */; };
 		4E02823C1E17BFA7005111D2 /* SQLite.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4E0282391E17BFA7005111D2 /* SQLite.framework.dSYM */; };
 		4E0282441E17BFFC005111D2 /* epub-test.epub in Resources */ = {isa = PBXBuildFile; fileRef = 4E02823F1E17BFFC005111D2 /* epub-test.epub */; };
-		4E0282451E17BFFC005111D2 /* epub-test2.epub in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282401E17BFFC005111D2 /* epub-test2.epub */; };
-		4E0282461E17BFFC005111D2 /* epub-test3.epub in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282411E17BFFC005111D2 /* epub-test3.epub */; };
 		4E0282471E17BFFC005111D2 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282421E17BFFC005111D2 /* style.css */; };
 		4E0282481E17BFFC005111D2 /* style2.css in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282431E17BFFC005111D2 /* style2.css */; };
 		4E02824C1E17C021005111D2 /* Gnosis.sdef in Resources */ = {isa = PBXBuildFile; fileRef = 4E02824A1E17C021005111D2 /* Gnosis.sdef */; };
@@ -37,8 +35,27 @@
 		4E0282511E188113005111D2 /* EpubTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02824F1E188113005111D2 /* EpubTableViewController.swift */; };
 		4E0282521E188113005111D2 /* EpubTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E0282501E188113005111D2 /* EpubTableViewController.xib */; };
 		4E0282541E1904D2005111D2 /* EpubTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282531E1904D1005111D2 /* EpubTableCellView.swift */; };
-		4E7AB3B31E1F870D00D186C1 /* GnosisEpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB3B21E1F870D00D186C1 /* GnosisEpub.swift */; };
 		4E86184C1E1D55EE006DF350 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E86184B1E1D55EE006DF350 /* QuartzCore.framework */; };
+		4EDD8B711E206AAF00522A07 /* GnosisTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD8B701E206AAF00522A07 /* GnosisTests.swift */; };
+		4EDD8B811E20FE7600522A07 /* GnosisEpubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDD8B801E20FE7600522A07 /* GnosisEpubTests.swift */; };
+		4EDD8B821E21825600522A07 /* GnosisEpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB3B21E1F870D00D186C1 /* GnosisEpub.swift */; };
+		4EDD8B831E21825A00522A07 /* GnosisEpubContentsEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 304CA6C3D36340EDD8FAC1EA /* GnosisEpubContentsEntry.swift */; };
+		4EDD8B841E2182A300522A07 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282041E179CAC005111D2 /* AppDelegate.swift */; };
+		4EDD8B851E2182A800522A07 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282061E179CAC005111D2 /* Document.swift */; };
+		4EDD8B861E2182AC00522A07 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282241E17A8EB005111D2 /* MainWindowController.swift */; };
+		4EDD8B871E2182B000522A07 /* EpubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E0282281E17BF6B005111D2 /* EpubViewController.swift */; };
+		4EDD8B881E2182B400522A07 /* FileLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02824D1E17C3A6005111D2 /* FileLibrary.swift */; };
+		4EDD8B891E2182BC00522A07 /* EpubTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E02824F1E188113005111D2 /* EpubTableViewController.swift */; };
+		4EDD8B8A1E2183B300522A07 /* GnosisEpub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7AB3B21E1F870D00D186C1 /* GnosisEpub.swift */; };
+		4EDD8B8C1E21849D00522A07 /* epub-test.epub in Resources */ = {isa = PBXBuildFile; fileRef = 4E02823F1E17BFFC005111D2 /* epub-test.epub */; };
+		4EDD8B8D1E218B0B00522A07 /* EpubCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE53D161E193142004052FE /* EpubCollectionViewController.swift */; };
+		4EDD8B8E1E218B2800522A07 /* EpubCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE53D121E192523004052FE /* EpubCollectionViewItem.swift */; };
+		4EDD8B8F1E21902100522A07 /* Ji.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02822C1E17BF8F005111D2 /* Ji.framework */; };
+		4EDD8B901E21902100522A07 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02822D1E17BF8F005111D2 /* SQLite.framework */; };
+		4EDD8B911E21902100522A07 /* UnzipKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E02822E1E17BF8F005111D2 /* UnzipKit.framework */; };
+		4EDD8B961E21904600522A07 /* Ji.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4EDD8B931E21904600522A07 /* Ji.framework.dSYM */; };
+		4EDD8B971E21904600522A07 /* UnzipKit.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4EDD8B941E21904600522A07 /* UnzipKit.framework.dSYM */; };
+		4EDD8B981E21904600522A07 /* SQLite.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4EDD8B951E21904600522A07 /* SQLite.framework.dSYM */; };
 		4EE53D141E192523004052FE /* EpubCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE53D121E192523004052FE /* EpubCollectionViewItem.swift */; };
 		4EE53D151E192523004052FE /* EpubCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4EE53D131E192523004052FE /* EpubCollectionViewItem.xib */; };
 		4EE53D181E193142004052FE /* EpubCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE53D161E193142004052FE /* EpubCollectionViewController.swift */; };
@@ -102,6 +119,13 @@
 			remoteGlobalIDString = E43A4E2D1BD842B6003CB3D7;
 			remoteInfo = "Ji tvOS Tests";
 		};
+		4EDD8B731E206AAF00522A07 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4E0281F91E179CAC005111D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4E0282001E179CAC005111D2;
+			remoteInfo = Gnosis;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -127,6 +151,18 @@
 				4E02823A1E17BFA7005111D2 /* Ji.framework.dSYM in CopyFiles */,
 				4E02823B1E17BFA7005111D2 /* UnzipKit.framework.dSYM in CopyFiles */,
 				4E02823C1E17BFA7005111D2 /* SQLite.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4EDD8B921E21903800522A07 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				4EDD8B961E21904600522A07 /* Ji.framework.dSYM in CopyFiles */,
+				4EDD8B971E21904600522A07 /* UnzipKit.framework.dSYM in CopyFiles */,
+				4EDD8B981E21904600522A07 /* SQLite.framework.dSYM in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +204,13 @@
 		4E86184B1E1D55EE006DF350 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = ../../../../System/Library/Frameworks/QuartzCore.framework; sourceTree = "<group>"; };
 		4E86184D1E1E5C6F006DF350 /* ePubPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ePubPlayground.playground; sourceTree = "<group>"; };
 		4E86184E1E1F0ED9006DF350 /* Ji.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Ji.xcodeproj; path = Carthage/Checkouts/Ji/Ji.xcodeproj; sourceTree = "<group>"; };
+		4EDD8B6E1E206AAF00522A07 /* GnosisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GnosisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4EDD8B701E206AAF00522A07 /* GnosisTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GnosisTests.swift; sourceTree = "<group>"; };
+		4EDD8B721E206AAF00522A07 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4EDD8B801E20FE7600522A07 /* GnosisEpubTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GnosisEpubTests.swift; sourceTree = "<group>"; };
+		4EDD8B931E21904600522A07 /* Ji.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Ji.framework.dSYM; path = ../Carthage/Build/Mac/Ji.framework.dSYM; sourceTree = "<group>"; };
+		4EDD8B941E21904600522A07 /* UnzipKit.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = UnzipKit.framework.dSYM; path = ../Carthage/Build/Mac/UnzipKit.framework.dSYM; sourceTree = "<group>"; };
+		4EDD8B951E21904600522A07 /* SQLite.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = SQLite.framework.dSYM; path = ../Carthage/Build/Mac/SQLite.framework.dSYM; sourceTree = "<group>"; };
 		4EE53D121E192523004052FE /* EpubCollectionViewItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpubCollectionViewItem.swift; sourceTree = "<group>"; };
 		4EE53D131E192523004052FE /* EpubCollectionViewItem.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpubCollectionViewItem.xib; sourceTree = "<group>"; };
 		4EE53D161E193142004052FE /* EpubCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpubCollectionViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +236,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4EDD8B6B1E206AAF00522A07 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EDD8B8F1E21902100522A07 /* Ji.framework in Frameworks */,
+				4EDD8B901E21902100522A07 /* SQLite.framework in Frameworks */,
+				4EDD8B911E21902100522A07 /* UnzipKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -203,6 +256,7 @@
 				4E0282031E179CAC005111D2 /* Gnosis */,
 				4E7AB3B11E1F870D00D186C1 /* GnosisEpub */,
 				4E02823E1E17BFFC005111D2 /* Shared */,
+				4EDD8B6F1E206AAF00522A07 /* GnosisTests */,
 				4E0282181E179CAD005111D2 /* GnosisUITests */,
 				4E02823D1E17BFDD005111D2 /* Frameworks */,
 				4E0282021E179CAC005111D2 /* Products */,
@@ -214,6 +268,7 @@
 			children = (
 				4E0282011E179CAC005111D2 /* Gnosis.app */,
 				4E0282151E179CAD005111D2 /* GnosisUITests.xctest */,
+				4EDD8B6E1E206AAF00522A07 /* GnosisTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -303,6 +358,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		4EDD8B6F1E206AAF00522A07 /* GnosisTests */ = {
+			isa = PBXGroup;
+			children = (
+				4EDD8B991E21905B00522A07 /* Frameworks */,
+				4EDD8B701E206AAF00522A07 /* GnosisTests.swift */,
+				4EDD8B801E20FE7600522A07 /* GnosisEpubTests.swift */,
+				4EDD8B721E206AAF00522A07 /* Info.plist */,
+			);
+			path = GnosisTests;
+			sourceTree = "<group>";
+		};
+		4EDD8B991E21905B00522A07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EDD8B931E21904600522A07 /* Ji.framework.dSYM */,
+				4EDD8B941E21904600522A07 /* UnzipKit.framework.dSYM */,
+				4EDD8B951E21904600522A07 /* SQLite.framework.dSYM */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -343,6 +419,25 @@
 			productReference = 4E0282151E179CAD005111D2 /* GnosisUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		4EDD8B6D1E206AAF00522A07 /* GnosisTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4EDD8B751E206AAF00522A07 /* Build configuration list for PBXNativeTarget "GnosisTests" */;
+			buildPhases = (
+				4EDD8B6A1E206AAF00522A07 /* Sources */,
+				4EDD8B6B1E206AAF00522A07 /* Frameworks */,
+				4EDD8B6C1E206AAF00522A07 /* Resources */,
+				4EDD8B921E21903800522A07 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4EDD8B741E206AAF00522A07 /* PBXTargetDependency */,
+			);
+			name = GnosisTests;
+			productName = GnosisTests;
+			productReference = 4EDD8B6E1E206AAF00522A07 /* GnosisTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -355,10 +450,18 @@
 				TargetAttributes = {
 					4E0282001E179CAC005111D2 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R23T526EHE;
 						ProvisioningStyle = Automatic;
 					};
 					4E0282141E179CAD005111D2 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R23T526EHE;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4E0282001E179CAC005111D2;
+					};
+					4EDD8B6D1E206AAF00522A07 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = R23T526EHE;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 4E0282001E179CAC005111D2;
 					};
@@ -384,6 +487,7 @@
 			projectRoot = "";
 			targets = (
 				4E0282001E179CAC005111D2 /* Gnosis */,
+				4EDD8B6D1E206AAF00522A07 /* GnosisTests */,
 				4E0282141E179CAD005111D2 /* GnosisUITests */,
 			);
 		};
@@ -446,14 +550,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4E0282451E17BFFC005111D2 /* epub-test2.epub in Resources */,
 				4E0282471E17BFFC005111D2 /* style.css in Resources */,
 				4EE53D151E192523004052FE /* EpubCollectionViewItem.xib in Resources */,
 				4E02820C1E179CAC005111D2 /* Assets.xcassets in Resources */,
 				4E02820A1E179CAC005111D2 /* Document.xib in Resources */,
 				4E02822B1E17BF6B005111D2 /* EpubViewController.xib in Resources */,
 				4E0282271E17A8EB005111D2 /* MainWindowController.xib in Resources */,
-				4E0282461E17BFFC005111D2 /* epub-test3.epub in Resources */,
 				4E0282521E188113005111D2 /* EpubTableViewController.xib in Resources */,
 				4E02820F1E179CAC005111D2 /* MainMenu.xib in Resources */,
 				4EE53D191E193142004052FE /* EpubCollectionViewController.xib in Resources */,
@@ -470,6 +572,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4EDD8B6C1E206AAF00522A07 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EDD8B8C1E21849D00522A07 /* epub-test.epub in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -483,9 +593,9 @@
 				4E0282071E179CAC005111D2 /* Document.swift in Sources */,
 				4E0282051E179CAC005111D2 /* AppDelegate.swift in Sources */,
 				4E02824E1E17C3A6005111D2 /* FileLibrary.swift in Sources */,
+				4EDD8B8A1E2183B300522A07 /* GnosisEpub.swift in Sources */,
 				4E02822A1E17BF6B005111D2 /* EpubViewController.swift in Sources */,
 				4E0282261E17A8EB005111D2 /* MainWindowController.swift in Sources */,
-				4E7AB3B31E1F870D00D186C1 /* GnosisEpub.swift in Sources */,
 				4EE53D141E192523004052FE /* EpubCollectionViewItem.swift in Sources */,
 				304CAC0F42C48D42830EC2A0 /* GnosisEpubContentsEntry.swift in Sources */,
 			);
@@ -499,6 +609,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		4EDD8B6A1E206AAF00522A07 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4EDD8B811E20FE7600522A07 /* GnosisEpubTests.swift in Sources */,
+				4EDD8B8E1E218B2800522A07 /* EpubCollectionViewItem.swift in Sources */,
+				4EDD8B8D1E218B0B00522A07 /* EpubCollectionViewController.swift in Sources */,
+				4EDD8B891E2182BC00522A07 /* EpubTableViewController.swift in Sources */,
+				4EDD8B861E2182AC00522A07 /* MainWindowController.swift in Sources */,
+				4EDD8B711E206AAF00522A07 /* GnosisTests.swift in Sources */,
+				4EDD8B851E2182A800522A07 /* Document.swift in Sources */,
+				4EDD8B821E21825600522A07 /* GnosisEpub.swift in Sources */,
+				4EDD8B841E2182A300522A07 /* AppDelegate.swift in Sources */,
+				4EDD8B881E2182B400522A07 /* FileLibrary.swift in Sources */,
+				4EDD8B871E2182B000522A07 /* EpubViewController.swift in Sources */,
+				4EDD8B831E21825A00522A07 /* GnosisEpubContentsEntry.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -506,6 +635,11 @@
 			isa = PBXTargetDependency;
 			target = 4E0282001E179CAC005111D2 /* Gnosis */;
 			targetProxy = 4E0282161E179CAD005111D2 /* PBXContainerItemProxy */;
+		};
+		4EDD8B741E206AAF00522A07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4E0282001E179CAC005111D2 /* Gnosis */;
+			targetProxy = 4EDD8B731E206AAF00522A07 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -623,7 +757,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = R23T526EHE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -640,7 +777,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = R23T526EHE;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
@@ -657,7 +797,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R23T526EHE;
 				INFOPLIST_FILE = GnosisUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.gennaios.GnosisUITests;
@@ -671,13 +813,57 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R23T526EHE;
 				INFOPLIST_FILE = GnosisUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.gennaios.GnosisUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = Gnosis;
+			};
+			name = Release;
+		};
+		4EDD8B761E206AAF00522A07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = R23T526EHE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = GnosisTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.gennaios.GnosisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gnosis.app/Contents/MacOS/Gnosis";
+			};
+			name = Debug;
+		};
+		4EDD8B771E206AAF00522A07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = R23T526EHE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
+				INFOPLIST_FILE = GnosisTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.gennaios.GnosisTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Gnosis.app/Contents/MacOS/Gnosis";
 			};
 			name = Release;
 		};
@@ -707,6 +893,15 @@
 			buildConfigurations = (
 				4E0282221E179CAD005111D2 /* Debug */,
 				4E0282231E179CAD005111D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4EDD8B751E206AAF00522A07 /* Build configuration list for PBXNativeTarget "GnosisTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4EDD8B761E206AAF00522A07 /* Debug */,
+				4EDD8B771E206AAF00522A07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

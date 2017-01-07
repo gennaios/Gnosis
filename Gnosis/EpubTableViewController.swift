@@ -11,6 +11,8 @@ import WebKit
 
 class EpubTableViewController: NSViewController {
 
+	// MARK: - Variables
+
 	@IBOutlet weak var tableView: NSTableView!
 
 	var epubFile: GnosisEpub?
@@ -21,6 +23,8 @@ class EpubTableViewController: NSViewController {
 //	override var nibName: String {
 //		return "EpubTableViewController"
 //	}
+
+	// MARK: - Init
 
 	convenience init() {
 		self.init(file: "")
@@ -38,6 +42,8 @@ class EpubTableViewController: NSViewController {
 	required init?(coder aDecoder: NSCoder) {
 		super.init(coder: aDecoder)
 	}
+
+	// MARK: - Lifecycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -72,6 +78,8 @@ class EpubTableViewController: NSViewController {
 	}
 }
 
+// MARK: - NSTableViewDataSource methods
+
 extension EpubTableViewController: NSTableViewDataSource {
 
 	func numberOfRows(in tableView: NSTableView) -> Int {
@@ -79,6 +87,8 @@ extension EpubTableViewController: NSTableViewDataSource {
 	}
 
 }
+
+// MARK: - NSTableViewDelegate methods
 
 // height: https://stackoverflow.com/questions/7504546/view-based-nstableview-with-rows-that-have-dynamic-heights?rq=1
 
@@ -107,6 +117,8 @@ extension EpubTableViewController: NSTableViewDelegate {
 	}
 
 }
+
+// MARK: - WebFrameLoadDelegate methods
 
 // https://stackoverflow.com/questions/2675244/how-to-resize-webview-according-to-its-content
 // https://stackoverflow.com/questions/3936041/how-to-determine-the-content-size-of-a-uiwebview
@@ -141,6 +153,8 @@ extension EpubTableViewController: WebFrameLoadDelegate {
 
 }
 
+// MARK: - WebResourceLoadDelegate methods
+
 extension EpubTableViewController: WebResourceLoadDelegate {
 
 	func webView(_ sender: WebView!, resource identifier: Any!, willSend request: URLRequest!, redirectResponse: URLResponse!, from dataSource: WebDataSource!) -> URLRequest! {
@@ -162,6 +176,8 @@ extension EpubTableViewController: WebResourceLoadDelegate {
 	}
 
 }
+
+// MARK: - WebPolicyDelegate methods
 
 extension EpubTableViewController: WebPolicyDelegate {
 

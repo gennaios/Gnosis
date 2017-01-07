@@ -27,6 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		// Insert code here to tear down your application
 	}
 
+	override func indicesOfObjects(byEvaluatingObjectSpecifier specifier: NSScriptObjectSpecifier) -> [NSNumber]? {
+		debugPrint(specifier)
+		return super.indicesOfObjects(byEvaluatingObjectSpecifier: specifier)
+	}
 
 }
 

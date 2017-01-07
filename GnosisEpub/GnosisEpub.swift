@@ -12,7 +12,7 @@ import UnzipKit
 import Ji
 
 @objc(Epub) class GnosisEpub: NSObject {
-	// MARK: Variables
+	// MARK: - Variables
 	var filePath = String()
 	var contents = [GnosisEpubContentsEntry]()
 
@@ -27,7 +27,7 @@ import Ji
 
 	var currentDocument: Int = -1
 
-	// MARK: ePub metadata
+	// MARK: - ePub metadata
 
 	var opfNode: Ji? = nil
 	var metadataNode: JiNode? = nil
@@ -85,7 +85,7 @@ import Ji
 		}
 	}
 
-	// MARK: Init
+	// MARK: - Init
 
 	override init() {
 		self.filePath = ""
@@ -171,12 +171,11 @@ import Ji
 		let appDescription = NSApplication.shared().classDescription as! NSScriptClassDescription
 
 		let specifier = NSUniqueIDSpecifier(containerClassDescription: appDescription,
-				containerSpecifier: nil, key: "epubs", uniqueID: filePath)
+				containerSpecifier: nil, key: "documents", uniqueID: filePath)
 		return specifier
 	}
 
-
-	func isValidBook() -> Bool {
+	func isValid() -> Bool {
 		if metadataNode != nil {
 			let title = metadataNode?.childrenWithName("title")
 			if title!.count > 0 {
@@ -278,7 +277,7 @@ import Ji
 		}
 	}
 
-	// MARK: Methods
+	// MARK: - Methods
 
 	func fileForIndex(index: Int) -> String? {
 		let filePath = extractedPath + documentList[index]
