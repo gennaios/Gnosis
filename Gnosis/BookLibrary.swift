@@ -1,5 +1,5 @@
 //
-//  FileLibrary.swift
+//  BookLibrary.swift
 //  Gnosis
 //
 //  Created by Gennaios on 25/12/2016.
@@ -9,7 +9,7 @@
 import Foundation
 import SQLite
 
-class FileLibrary {
+class BookLibrary {
 
 	var db: Connection!
 	let files = Table("files")

@@ -1,6 +1,6 @@
 .DS_Store
 Carthage/*
-Shared/*.epub
+Shared/epubs*.epub
 Shared/style2.css
 
 .idea/encodings.xml

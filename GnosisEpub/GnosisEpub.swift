@@ -186,7 +186,7 @@ import Ji
 	}
 
 	func cachePath() -> String? {
-		let fileLib = FileLibrary()
+		let fileLib = BookLibrary()
 		let uuid = fileLib.getFileUuid(filePath: filePath)
 		print("File uuid: \(uuid!)")
 
