@@ -186,8 +186,8 @@ import Ji
 	}
 
 	func cachePath() -> String? {
-		let fileLib = BookLibrary()
-		let uuid = fileLib.getFileUuid(filePath: filePath)
+		let books = BookLibrary()
+		let uuid = books.getFileUuid(filePath: filePath)
 		print("File uuid: \(uuid!)")
 
 		let path = NSSearchPathForDirectoriesInDomains(

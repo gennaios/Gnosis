@@ -154,10 +154,10 @@ extension EpubViewController: WebResourceLoadDelegate {
 		}
 
 		if url.scheme == "file" {
-			let anchorFromURL = url.fragment
+//			let anchorFromURL = url.fragment
 //			print("anchorFromURL: \(anchorFromURL)")
 
-			let path = url.path
+//			let path = url.path
 		}
 
 		return request

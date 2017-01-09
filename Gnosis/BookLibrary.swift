@@ -10,34 +10,44 @@ import Foundation
 import SQLite
 
 class BookLibrary {
-
+	
+	// MARK: - Variables
+	
+	// SQLite.swift
+	
 	var db: Connection!
 	let files = Table("files")
-
+	
 	let id = Expression<Int64>("id")
 	let file = Expression<String>("file")
 	let uuid = Expression<String>("uuid")
 	let last_opened = Expression<Date?>("last_opened")
+	let date_modified = Expression<Date?>("date_modified")
 
+	// MARK: - Init
+	
 	init() {
-		let path = NSSearchPathForDirectoriesInDomains(
-				.applicationSupportDirectory, .userDomainMask, true
-		).first! + "/" + Bundle.main.bundleIdentifier!
-
-		// create parent directory iff it doesn't exist
-		let _ = try! FileManager.default.createDirectory(
-				atPath: path, withIntermediateDirectories: true, attributes: nil
-		)
-
-		do {
-			db = try Connection("\(path)/gnosis.sqlite3")
-		} catch {
-			print("Error creating db: \(error).")
-		}
-
+		initConnection()
 		initTables()
 	}
 
+	func initConnection() {
+		let appSupportPath = NSSearchPathForDirectoriesInDomains(
+			.applicationSupportDirectory, .userDomainMask, true
+			).first! + "/" + Bundle.main.bundleIdentifier!
+		
+		// create parent directory if it doesn't exist
+		let _ = try! FileManager.default.createDirectory(
+			atPath: appSupportPath, withIntermediateDirectories: true, attributes: nil
+		)
+		
+		do {
+			db = try Connection("\(appSupportPath)/gnosis.sqlite3")
+		} catch {
+			print("Error creating db: \(error).")
+		}
+	}
+	
 	func initTables() {
 		do {
 			try db?.run(files.create(ifNotExists: true) { t in
@@ -45,6 +55,7 @@ class BookLibrary {
 				t.column(file, unique: true)
 				t.column(uuid, unique: true)
 				t.column(last_opened)
+				t.column(date_modified)
 			})
 
 //            t.foreignKey(file_id, references: files, id, delete: .setNull)
@@ -52,6 +63,8 @@ class BookLibrary {
 			print("Error creating db: \(error).")
 		}
 	}
+	
+	// MARK: - Methods
 
 	func getFileUuid(filePath: String) -> String? {
 
