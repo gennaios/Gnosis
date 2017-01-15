@@ -15,7 +15,8 @@ class EpubTableViewController: NSViewController {
 
 	@IBOutlet weak var tableView: NSTableView!
 
-	var epubFile: GnosisEpub?
+//	var epubFile: GnosisEpub?
+	var book: BookLibrary!
 
 	var ePubViews: [WebView] = []
 	var epubViewHeights: [Int] = []
@@ -33,7 +34,8 @@ class EpubTableViewController: NSViewController {
 	init(file: String) {
 		super.init(nibName: nil, bundle: nil)!
 
-		epubFile = GnosisEpub(file: file)
+//		epubFile = GnosisEpub(file: file)
+		book = BookLibrary(file: file)
 //		print("ePub title: \(epubFile?.title!)")
 
 		initWebViews()
@@ -53,13 +55,12 @@ class EpubTableViewController: NSViewController {
 	}
 
 	func initWebViews() {
-		for index in 0 ... ((epubFile?.documentCount)! - 1) {
-			print("Index: \(index)")
+		for index in 0 ... (book.documentList.count - 1) {
 
-			let html = epubFile?.htmlForIndex(index: index)
+			let html = book.htmlForIndex(index: index)
 
 			let webView = WebView(frame: self.view.bounds)
-			let baseURL = URL(fileURLWithPath: (epubFile?.fileForIndex(index: index))!).deletingLastPathComponent()
+			let baseURL = URL(fileURLWithPath: (book.fileForIndex(index: index))!).deletingLastPathComponent()
 			webView.mainFrame.loadHTMLString(html, baseURL: baseURL)
 
 			webView.mainFrame.frameView.allowsScrolling = false
@@ -83,7 +84,7 @@ class EpubTableViewController: NSViewController {
 extension EpubTableViewController: NSTableViewDataSource {
 
 	func numberOfRows(in tableView: NSTableView) -> Int {
-		return epubFile?.documentList.count ?? 0
+		return book.documentList.count
 	}
 
 }
@@ -95,7 +96,7 @@ extension EpubTableViewController: NSTableViewDataSource {
 extension EpubTableViewController: NSTableViewDelegate {
 
 	func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-		if epubViewHeights.count == (epubFile?.documentCount)! {
+		if epubViewHeights.count == (book.documentList.count) {
 //			let view = tableView.view(atColumn: 1, row: row, makeIfNecessary: false) as! WebView
 //			let heightString = view.stringByEvaluatingJavaScript(from: "document.body.scrollHeight")
 //
@@ -110,10 +111,7 @@ extension EpubTableViewController: NSTableViewDelegate {
 	}
 
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-		guard let epubView: WebView = ePubViews[row] else {
-			return nil
-		}
-		return epubView
+		return ePubViews[row]
 	}
 
 }
@@ -161,15 +159,15 @@ extension EpubTableViewController: WebResourceLoadDelegate {
 //        print("redirectResponse request: \(request.url!)")
 //		print("redirectResponse resource: \(identifier)")
 
-		guard let url = request.url else {
-			return request
-		}
+//		guard let url = request.url else {
+//			return request
+//		}
 
-		if url.scheme == "file" {
-			let anchorFromURL = url.fragment
-			let path = url.path
+//		if url.scheme == "file" {
+//			let anchorFromURL = url.fragment
+//			let path = url.path
 //			print("willSend request: path \(path) anchorFromURL: \(anchorFromURL)")
-		}
+//		}
 
 		return request
 //		return nil

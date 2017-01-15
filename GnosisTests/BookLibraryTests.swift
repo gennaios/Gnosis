@@ -12,11 +12,14 @@ import XCTest
 
 class BookLibraryTests: XCTestCase {
 
-	var books = BookLibrary()
+	var book: BookLibrary!
+	var file: String = ""
 
 	override func setUp() {
 		super.setUp()
-		// Put setup code here. This method is called before the invocation of each test method in the class.
+		
+		file = Bundle.main.path(forResource: "epub-test", ofType: "epub")!
+		book = BookLibrary(file: file)
 	}
 
 	override func tearDown() {
@@ -29,7 +32,18 @@ class BookLibraryTests: XCTestCase {
 				.applicationSupportDirectory, .userDomainMask, true
 		).first! + "/" + Bundle.main.bundleIdentifier!
 
-		XCTAssertEqual("\(path)/gnosis.sqlite3", books.db.description)
+		XCTAssertEqual("\(path)/gnosis.sqlite3", book.db.description)
+	}
+
+	func testInitBook() {
+//		guard let epub = GnosisEpub(file: file) else {
+//			XCTFail("should find sample ePub")
+//			return
+//		}
+
+//		let book = BookLibrary(file: epub)
+
+		XCTAssertNotNil(book.book, "should find sample epub")
 	}
 
 	func testPerformanceExample() {

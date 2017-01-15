@@ -10,8 +10,12 @@ import Cocoa
 
 class Document: NSDocument {
 
+	// MARK: - Variables
+
 	var mainWindowController: NSWindowController?
-	var epubFile: GnosisEpub?
+	var epubFile: BookLibrary!
+
+	// MARK: - Init
 
 	override init() {
 		super.init()
@@ -39,10 +43,18 @@ class Document: NSDocument {
 		// You can also choose to override readFromFileWrapper:ofType:error: or readFromURL:ofType:error: instead.
 		// If you override either of these, you should also override -isEntireFileLoaded to return false if the contents are lazily loaded.
 
-		epubFile = GnosisEpub(file: url.path)
+		epubFile = BookLibrary(file: url.path)
 
 //		throw NSError(domain: NSOSStatusErrorDomain, code: unimpErr, userInfo: nil)
 	}
+
+//	override var objectSpecifier: NSScriptObjectSpecifier {
+//		let appDescription = NSApplication.shared().classDescription as! NSScriptClassDescription
+//
+//		let specifier = NSUniqueIDSpecifier(containerClassDescription: appDescription,
+//				containerSpecifier: nil, key: "documents", uniqueID: filePath)
+//		return specifier
+//	}
 
 }
 

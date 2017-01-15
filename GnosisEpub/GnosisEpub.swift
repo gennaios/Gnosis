@@ -14,7 +14,7 @@ import Ji
 @objc(Epub) class GnosisEpub: NSObject {
 	// MARK: - Variables
 	var filePath = String()
-	var contents = [GnosisEpubContentsEntry]()
+//	var contents = [GnosisEpubContentsEntry]()
 
 
 	var fileArchive: UZKArchive?
@@ -154,25 +154,10 @@ import Ji
 			metadataNode = opfNode?.rootNode?.firstChildWithName("metadata")
 			manifestNode = opfNode?.rootNode?.firstChildWithName("manifest")
 			spineNode = opfNode?.rootNode?.firstChildWithName("spine")
-			parseSpine()
 			documentCount = documentList.count
 		}
 
-		if let cachePath = cachePath() {
-			self.extractedPath = cachePath
-		}
-		print("Extracted path: \(self.extractedPath)")
-
-		parseContents()
-		extractFile()
-	}
-
-	override var objectSpecifier: NSScriptObjectSpecifier {
-		let appDescription = NSApplication.shared().classDescription as! NSScriptClassDescription
-
-		let specifier = NSUniqueIDSpecifier(containerClassDescription: appDescription,
-				containerSpecifier: nil, key: "documents", uniqueID: filePath)
-		return specifier
+//		parseContents()
 	}
 
 	func isValid() -> Bool {
@@ -185,48 +170,22 @@ import Ji
 		return false
 	}
 
-	func cachePath() -> String? {
-		let books = BookLibrary()
-		let uuid = books.getFileUuid(filePath: filePath)
-		print("File uuid: \(uuid!)")
+	func parseContents() -> [GnosisEpubContentsEntry]? {
+		var contents = [GnosisEpubContentsEntry]()
 
-		let path = NSSearchPathForDirectoriesInDomains(
-				.cachesDirectory, .userDomainMask, true
-		).first! + "/" + Bundle.main.bundleIdentifier!
-
-		// create parent directory if it doesn't exist
-		let _ = try! FileManager.default.createDirectory(
-				atPath: path, withIntermediateDirectories: true, attributes: nil
-		)
-		if let uuid = uuid {
-			return path + "/" + uuid + "/"
-		} else {
-			return nil
-		}
-	}
-
-	func extractFile() {
-		do {
-			try fileArchive?.extractFiles(to: self.extractedPath, overwrite: false)
-		} catch {
-			print("Error extracting file: \(error)")
-		}
-	}
-
-	func parseContents() {
 		let contentsNode = manifestNode?.firstChildWithAttributeName("id", attributeValue: "ncx")
 
 		guard let contentsJiNode = contentsNode,
 			let contentsHref = contentsJiNode["href"],
 			let basePath = innerBasePath else {
-			return
+			return nil
 		}
 
 		do {
 			let optionalContentsData = try fileArchive?.extractData(fromFile: basePath + contentsHref, progress: nil) as Data?
 
 			guard let contentsData = optionalContentsData else {
-				return
+				return nil
 			}
 
 			let ncxXml = Ji(data: contentsData, isXML: true)
@@ -254,27 +213,7 @@ import Ji
 //		for content in contents {
 //			print("Contents: \(content.id), \(content.title), \(content.src)")
 //		}
-	}
-
-	func parseSpine() {
-		if spineNode != nil {
-			let spineItems = spineNode?.childrenWithName("itemref")
-			for item in spineItems! {
-				if item["linear"] != "no" {
-					let idref = item["idref"]
-					//                    print("Spine item: \(idref)")
-
-					// manifest item href with id
-					let href = manifestNode?.firstChildWithAttributeName("id", attributeValue: idref!)
-					if href != nil {
-						let spineItem = href!["href"]
-						let spineURL = innerBasePath! + spineItem!
-						//                        print("Item URL: \(spineURL)")
-						documentList.append(spineURL)
-					}
-				}
-			}
-		}
+		return contents
 	}
 
 	// MARK: - Methods

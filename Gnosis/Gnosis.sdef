@@ -159,7 +159,7 @@
         </class>
 
         <class name="document" code="docu" description="A Gnosis document.">
-        <cocoa class="Gnosis.Document"/>
+        <cocoa class="Document"/>
         <property name="name" code="pnam" type="text" access="r" description="Its name.">
             <cocoa key="displayName"/>
         </property>
